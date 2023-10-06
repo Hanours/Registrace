@@ -1,0 +1,32 @@
+
+section{
+    border: 5px solid grey;
+    border-radius: 10%;
+    padding: 50px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    width: 500px
+}
+input{
+    width: 200px;
+    margin: auto;
+    margin-bottom: 30px;
+    padding: 10px;
+   
+    
+
+}
+button { 
+  
+    margin: auto;
+    border: 1px;
+    background-color: grey;
+    border-radius: 100%;
+    padding: 30px;
+}
+
+button:hover{ 
+    background-color: #008080;
+
+}

@@ -17,12 +17,15 @@ const Registration = () => {
 
 return (
     <section>
-        <p>Hanka</p>
+      
+        <input type="email" placeholder="Email address"/>
+
+        <input type="text" placeholder="User name"/>
+
+        <input type="password" placeholder="Password"/>
+                
+        <input type="password" placeholder="Confirm password"/> 
          
-
-
-
-
         <button type="submit">Register</button>
       
     </section>
