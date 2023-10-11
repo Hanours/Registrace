@@ -1,45 +1,88 @@
-import React from 'react';
-import "./style.css"
-import { useState, useEffect } from "react"
+
+import React from "react";
+import { useState, useEffect } from "react";
+import './style.css';
 
 
 const Registration = () => {
 
  
-    const data = {
-        username: "",
-        email: "",
-        password: "",
-        passwordConfirm: "",
-    }
-    const [user, setUser] = useState(data)
+    const [user, setUser] = useState({
+        username: '',
+        email: '',
+        password: '',
+        passwordConfirm: ''
+    })
+  
     const {username, email, password, passwordConfirm} = user
+ 
 
-    const handleSubmit = (e) => {
-        e.preventDefault()
+      const handleEmailChange = event => {
+        const { value } = event.target
+        let username = user.username
+        if (username === '' && value.indexOf('@') != -1) {
+          username = value.split('@')[0]
+        }
+        setUser(prevState => ({
+          ...prevState,
+          email: value,
+          username,
+        }))
+      } 
+    
+    
 
-
-    }
-
-
-
-return (
+  return (
     <section>
-        <form id="form" onSubmit={handleSubmit}></form>
-
-        
-        <input type="email" placeholder="Email address"/>
-
-        <input type="text" placeholder="User name"/>
-
-        <input type="password" placeholder="Password"/>
-                
-        <input type="password" placeholder="Confirm password"/> 
+      <h1>Registration</h1>
+        <form >
+            <input
+              type='email'
+              name='email'
+              required
+              placeholder='Email Address'
+              value={email}
+              onChange={handleEmailChange}
+            />
+       
+            <input
+              type='text'
+              name='username'
+              placeholder='User Name'
+              value={username}
+              onChange={e => setUser({...user, username: e.target.value})}
+            />
          
-        <button type="submit">Register</button>
-      
+
+            <input
+              type='password'
+              name='password'
+              placeholder='Password'
+              value={password}
+              onChange={e => setUser({...user, password: e.target.value})}
+
+            />
+         
+         
+            <input
+              type='password'
+              id="passwordconfirm"
+              placeholder='Confirm Password'
+              value={passwordConfirm}
+              onChange={ e => setUser({...user, passwordConfirm: e.target.value})}
+              />
+         
+           
+          
+            <button
+              type='button'
+                onClick={() => console.log(user)}>
+              Register
+            </button>
+         
+        </form>
     </section>
-    )
+  )
 }
 
 export default Registration
