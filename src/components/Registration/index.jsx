@@ -39,7 +39,6 @@ const Registration = () => {
             <input
               type='email'
               name='email'
-              required
               placeholder='Email Address'
               value={email}
               onChange={handleEmailChange}
